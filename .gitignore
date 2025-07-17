@@ -19,7 +19,6 @@ content/raw/
 content/filtered/
 content/processed/
 content/metadata/
-content/images/
 content/temp/
 content/*.log
 

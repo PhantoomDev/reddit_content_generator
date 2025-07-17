@@ -74,7 +74,7 @@ mkdir -p content/stock_footage/{gaming/{vertical,horizontal},satisfying/{vertica
 mkdir -p content/music
 ```
 
-5. Add your assets:
+5. Add your assets: (Check the README in the folder for details)
    - Stock footage in `content/stock_footage/`
    - Background music in `content/music/`
    - Thumbnail generation stock image is `content/images/`
