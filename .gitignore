@@ -29,6 +29,7 @@ content/description/
 # Stock assets - keep structure but not files
 content/stock_footage/*/*
 content/music/*
+content/images/*/*
 
 # But keep directory structure with .gitkeep
 !content/*/.gitkeep
@@ -38,6 +39,7 @@ content/music/*
 # Include README files for setup instructions
 !content/stock_footage/README.md
 !content/music/README.md
+!content/images/README.md
 
 # Python
 __pycache__/
