@@ -1,0 +1,49 @@
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Speech SDK (Microsoft Cognitive Services SDK)
+speechSDK*/
+SpeechSDK*/
+
+# Sensitive config
+config/settings.yaml
+
+# Generated content (too large/not needed)
+content/audio/
+content/videos/
+content/raw/
+content/filtered/
+content/processed/
+content/metadata/
+content/images/
+content/temp/
+
+# Organization files
+content/description/
+
+# Stock assets - keep structure but not files
+content/stock_footage/*/*
+content/music/*
+
+# But keep directory structure with .gitkeep
+!content/*/.gitkeep
+!content/*/*/.gitkeep
+!content/*/*/*/.gitkeep
+
+# Include README files for setup instructions
+!content/stock_footage/README.md
+!content/music/README.md
+
+# Python
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
