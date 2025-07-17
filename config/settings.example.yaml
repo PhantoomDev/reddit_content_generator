@@ -1,0 +1,260 @@
+# config/settings.yaml
+
+reddit:
+  client_id: "YOUR_CLIENT_ID_HERE"
+  client_secret: "YOUR_CLIENT_SECRET_HERE"
+  user_agent: "python:RedditContentGenerator:v1.0 (by /u/YOUR_USERNAME)"
+
+paths:
+  base_dir: "content"
+  raw: "content/raw"
+  processed: "content/processed"
+  images: "content/images"
+  audio: "content/audio"
+  metadata: "content/metadata"
+  filtered: "content/filtered"
+  videos: "content/video"
+
+# Scraping-specific settings
+scraping:
+  # Number of worker for async process
+  max_worker_main: 8
+  max_worker_sub : 16
+
+  # Default number of posts to fetch per subreddit
+  default_post_limit: 180
+
+  # Post retrieval settings
+  post_settings:
+    min_score: 75
+    min_comments: 8
+    max_title_length: 300
+    exclude_nsfw: true
+    exclude_deleted: true
+
+  # Comment retrieval settings
+  comment_settings:
+    min_comment_score: 50
+    min_comment_length: 20
+    max_comment_length: 500
+    max_comments_per_post: 5
+    exclude_automod: true
+
+  # Time window settings for post gathering
+  time_windows:
+    - window: "day"
+      weight: 0.2
+    - window: "week"
+      weight: 0.4
+    - window: "month"
+      weight: 0.3
+    - window: "year"
+      weight: 0.1
+
+  # Engagement score calculation weights
+  engagement_weights:
+    upvote: 1.0
+    comment: 1.5
+    award: 2.0
+    recency_decay: 24  # hours
+
+  # Subreddit categorization
+  subreddits:
+    general:
+      - "AskReddit"
+      - "todayilearned"
+      - "explainlikeimfive"
+      - "tifu"
+      - "MaliciousCompliance"
+      - "LifeProTips"
+      - "NoStupidQuestions"
+      - "confessions"
+    tech:
+      - "technology"
+      - "programming"
+      - "TalesFromTechSupport"
+      - "ProgrammerHumor"
+      - "techsupportgore"
+      - "gadgets"
+      - "ArtificialIntelligence"
+      - "buildapc"
+      - "pcmasterrace"
+      - "cybersecurity"
+      - "dataisbeautiful"
+      - "sysadmin"
+      - "EngineeringPorn"
+      - "techsupport"
+      - "mac"
+      - "windows"
+      - "AndroidQuestions"
+      - "apple"
+      - "hardware"
+      - "networking"
+      - "cscareerquestions"
+      - "webdev"
+      - "MachineLearning"
+      - "privacy"
+      - "netsec"
+    pop:
+      - "movies"
+      - "television"
+      - "gaming"
+      - "FanTheories"
+      - "gamedev"
+      - "MovieDetails"
+      - "patientgamers"
+      - "anime"
+      - "MarvelStudios"
+      - "NetflixBestOf"
+      - "comicbooks"
+      - "nostalgicgaming"
+      - "TrueGaming"
+      - "HobbyDrama"
+      - "PrequelMemes"
+      - "freefolk"
+      - "thewalkingdead"
+      - "startrek"
+      - "harrypotter"
+      - "StrangerThings"
+      - "BetterCallSaul"
+      - "theoffice"
+      - "DunderMifflin"
+      - "SquaredCircle"
+      - "DCcomics"
+      - "StarWars"
+
+  # Rate limiting and API settings
+  rate_limits:
+    requests_per_minute: 30
+    max_retries: 3
+    retry_delay: 5  # seconds
+
+# Filtering-specific settings
+filtering:
+  # Content criteria
+  criteria:
+    # Text length requirements
+    min_text_length: 20        # Minimum characters for meaningful content
+    max_text_length: 500       # Maximum characters to keep content concise
+    max_title_length: 300      # Maximum title length
+    min_line_length: 5         # Minimum characters per line
+    max_line_breaks: 5         # Maximum consecutive line breaks
+
+    # Engagement thresholds
+    min_score: 100            # Minimum score threshold for comments
+    min_post_score: 1000      # Minimum score for posts
+    min_quality_score: 0.4    # Minimum quality score (0-1)
+
+    # Structure limits
+    max_replies: 3            # Maximum number of replies to include
+    max_depth: 2              # Maximum depth of reply chains
+    min_comments: 2           # Minimum comments per segment
+    max_comments: 5           # Maximum comments per segment
+
+  # Content filtering
+  content_filters:
+    excluded_phrases: # Phrases that disqualify content
+      - "[deleted]"
+      - "[removed]"
+      - "http"
+      - "edit:"
+    excluded_topics: # Topics to filter out
+      - "nsfw"
+      - "gore"
+      - "politics"
+      - "spam"
+
+    # Quality scoring weights
+    quality_weights:
+      engagement: 0.4         # Weight for engagement metrics
+      length: 0.2             # Weight for content length
+      formatting: 0.2         # Weight for text formatting
+      variety: 0.2            # Weight for content variety
+
+    # Output settings
+    output:
+      max_segments_per_batch: 50    # Maximum segments to save per batch
+      min_segment_gap: 3600         # Minimum seconds between segments
+      format: "json"                # Output format
+      include_metadata: true        # Include filtering metadata
+
+tts_processing:
+  audio_output_path: "content/audio"
+  speaker_settings:
+    narrator:
+      voice: "en-US-Neural2-D"
+      speed: 1.0
+      commenter:
+        voice: "en-US-Neural2-A"
+        speed: 1.0
+      replier:
+        voice: "en-US-Neural2-C"
+        speed: 1.0
+  formatting:
+    pause_short: "..."  # Short pause marker
+    pause_long: "...."  # Long pause marker
+    emphasis_marker: "*"  # Marker for emphasized words
+  generator_max_worker: 8
+
+
+video_generation:
+  # General video settings
+  output_path: "content/video"
+  temp_path: "content/temp"
+  max_concurrent_processes: 4
+
+  # Stock footage settings
+  stock_footage:
+    categories:
+      gaming:
+        - "subway_surfer"
+        - "minecraft"
+        - "gtav"
+      satisfying:
+        - "sand"
+        - "hydraulic_press"
+        - "soap"
+    music:
+
+  # Short-form video settings
+  shorts:
+    width: 1080
+    height: 1920
+    fps: 24
+    max_duration: 60
+    min_duration: 15
+    text_settings:
+      font: "Arial"
+      font_size: 72
+
+  # Long-form video settings
+  longform:
+    width: 1920
+    height: 1080
+    fps: 24
+    text_settings:
+      font: "Arial"
+      font_size: 60
+
+  # Audio settings
+  audio:
+    background_music:
+      volume: 0.3
+    voice:
+      volume: 1.0
+      normalize: true
+
+  # Fixed assets
+  fixed_assets:
+    outro_clip: "content/stock_footage/fixed/outro.mp4"
+
+  # Export settings
+  export:
+    video_codec: "h264"
+    audio_codec: "aac"
+    video_bitrate: "4M"
+    audio_bitrate: "192k"
+    shorts_format: "mp4"
+    longform_format: "mp4"
+    metadata_template: "content/metadata/video_metadata_template.json"
+

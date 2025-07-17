@@ -14,13 +14,14 @@ config/settings.yaml
 
 # Generated content (too large/not needed)
 content/audio/
-content/videos/
+content/video/
 content/raw/
 content/filtered/
 content/processed/
 content/metadata/
 content/images/
 content/temp/
+content/*.log
 
 # Organization files
 content/description/

@@ -69,14 +69,15 @@ cp config/settings.example.yaml config/settings.yaml
 4. Set up required directories:
 ```bash
 # Create directory structure
-mkdir -p content/{audio,videos,raw,filtered,processed,metadata,images}
+mkdir -p content/{audio,video,raw,filtered,processed,metadata,images}
 mkdir -p content/stock_footage/{gaming/{vertical,horizontal},satisfying/{vertical,horizontal},fixed}
 mkdir -p content/music
 ```
 
 5. Add your assets:
-   - Stock footage in `content/stock_footage/` (see README in that directory)
-   - Background music in `content/music/` (see README in that directory)
+   - Stock footage in `content/stock_footage/`
+   - Background music in `content/music/`
+   - Thumbnail generation stock image is `content/images/`
 
 ## 🚦 Usage
 
