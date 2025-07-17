@@ -15,7 +15,7 @@ A high-performance Python application for automated content aggregation and vide
 - **Content Aggregation**: Automated Reddit content scraping with configurable subreddit targeting
 - **Content Filtering**: Multi-stage filtering pipeline for quality control
 - **Text-to-Speech**: Batch TTS generation with segment management
-- **Video Generation**: Automated video composition with multiple tracks (content, background, audio)
+- **Video Generation**: Automated video composition with multiple tracks (content, background, audio, large subtitles)
 - **Configuration Management**: YAML-based configuration for easy customization
 
 ## 🏗️ Architecture
@@ -150,6 +150,12 @@ MIT License - See LICENSE file for details
 - [ ] Implement ML-based content quality scoring
 - [ ] Add real-time processing capabilities
 - [ ] Expand video template options
+
+
+## Example brainrot
+- https://www.youtube.com/@TheMainFeed
+- https://www.youtube.com/@TheTechFeed-o3i
+- https://www.youtube.com/@ThePopFeed
 
 ---
 
